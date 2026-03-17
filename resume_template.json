@@ -1,0 +1,245 @@
+{
+  "latex_template": "shamik_resume_template.tex",
+  "contact": {
+    "name": "Shamik Basu",
+    "email": "shamik1900@gmail.com",
+    "phone": "+1 (213) 255-6219",
+    "location": "Los Angeles, CA",
+    "linkedin": "https://www.linkedin.com/in/shamikofficial/",
+    "github": "https://github.com/ShamikOfficial"
+  },
+  "education": [
+    {
+      "degree": "Master of Science, Data Science | GPA: 3.78",
+      "institution": "University of Southern California",
+      "year": "January 2025 – December 2026",
+      "location": "Los Angeles, CA",
+      "bullets": [
+        "Coursework: Machine Learning, Data Science, Deep Learning, Data Management"
+      ]
+    },
+    {
+      "degree": "Bachelor of Technology, Computer Science | GPA: 3.46",
+      "institution": "SRM Institute of Science and Technology",
+      "year": "May 2018 – June 2022",
+      "location": "Chennai, India",
+      "bullets": [
+        "Coursework: Machine Learning, Artificial Intelligence, Data Structures & Algorithms, Probability & Queueing Theory"
+      ]
+    }
+  ],
+  "skills": [
+    "Python",
+    "SQL",
+    "Bash",
+    "C",
+    "C++",
+    "JavaScript",
+    "CUDA",
+    "Ad-Hoc Analysis",
+    "Predictive Analytics",
+    "Demand Planning",
+    "KPI Design",
+    "Scenario Analysis",
+    "Executive Reporting",
+    "Logistic Regression",
+    "Classification",
+    "Clustering",
+    "NLP (NER, BERT, SpaCy)",
+    "Deep Learning (OCR, TensorFlow, PyTorch)",
+    "MySQL",
+    "SQL Server",
+    "MongoDB",
+    "Azure Synapse",
+    "Trino",
+    "Enterprise Data Warehouses",
+    "Snowflake",
+    "PostgreSQL",
+    "Power BI",
+    "Tableau",
+    "Excel",
+    "PowerPoint",
+    "Dashboard Design",
+    "FastAPI",
+    "Docker",
+    "CI/CD",
+    "ELK Stack",
+    "Kubernetes"
+  ],
+  "leadership": [
+    {
+      "title": "GRIDS Club, USC",
+      "role": "Vice President",
+      "period": "September 2025 -- Present",
+      "bullets": [
+        "Led analytics workshops, ideathons, and data-driven projects for 250+ members."
+      ]
+    },
+    {
+      "title": "USC Viterbi School of Engineering",
+      "role": "Graduate Student Mentor",
+      "period": "January 2025 -- Present",
+      "bullets": [
+        "Mentored 6 graduate students on analytics careers, communication, and professional development."
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "company": "KCC Capital Partners",
+      "role": "Data Science Associate Intern",
+      "period": "January 2026 - Present",
+      "location": "Los Angeles, CA",
+      "highlights": [
+        "Worked with the Automation Team to fine-tune and integrate open source SLM in the core chatbot service built using JavaScript and Docker, to streamline service request handling and seamless delivery speed for client requests."
+      ]
+    },
+    {
+      "company": "Bajaj Finserv Health",
+      "role": "Data Scientist",
+      "period": "November 2023 - December 2024",
+      "location": "Pune, India",
+      "highlights": [
+        "Architected and deployed a real-time medical document analytics system using RAG architecture delivered through REST APIs, processing 5M+ records/month with 92% accuracy to bridge the gap between experimental ML models and production services.",
+        "Engineered NLP and LLM-based inference workflows (using GPT-3.5 Turbo) to automate complex decision processes, directly reducing operational costs and resources with 72% yield, allowing business to expand into other downstream operations.",
+        "Built modular analytics and monitoring pipelines using LangChain and Langfuse to enhance model observability, reducing computational resource utilization by 15% during experimentation phases, yielding long-term cost saving and efficiency.",
+        "Collaborated with product and engineering teams to integrate ML outputs into Power BI dashboards, reducing turnaround time of ad-hoc reporting tasks by 42% and enabling self-serve analytics."
+      ]
+    },
+    {
+      "company": "Bajaj Finserv Health",
+      "role": "Associate Data Scientist",
+      "period": "July 2022 - October 2023",
+      "location": "Pune, India",
+      "highlights": [
+        "Developed supervised Machine Learning model (Logistic Regression), improving workforce efficiency outcomes by 22% through actionable and statistical insights and reward based model.",
+        "Implemented significant changes to NER based name-matching algorithm for fraud detection system, increasing user identification accuracy by 27% reducing False Positives and significantly mitigating fraudulent claims against non-insured members.",
+        "Processed big data (10M+) in Azure Synapse delivering reliable insight with SQL to support business decisions for senior stakeholders."
+      ]
+    },
+    {
+      "company": "Bajaj Finserv Health",
+      "role": "Data Engineer Intern",
+      "period": "January 2022 - June 2022",
+      "location": "Pune, India",
+      "highlights": [
+        "Performed A/B testing and cohort analysis using statistical methods, identifying key user behavior that improved conversion metric by 37%.",
+        "Designed a distributed analytics system using C++, Trino, and Docker to support over 10 million records and 200+ features, accelerating data-driven decision-making for product teams."
+      ]
+    }
+  ],
+  "roles": {
+    "Data Scientist": {
+      "summary": [
+        "Data Scientist pursuing M.Sc in Data Science at USC with 2 years of experience implementing and deploying large-scale ML Models and GenAI systems.",
+        "Built and maintained CI/CD pipelines, delivered production grade analytics frameworks, and developed FastAPI services powering lead-scoring and churn models to increase lead conversion while reducing churn to drive maximum operational efficiency."
+      ],
+      "keywords": [
+        "machine learning",
+        "data science",
+        "genai",
+        "fastapi",
+        "nlp",
+        "llm",
+        "analytics"
+      ],
+      "projects": [
+        {
+          "title": "EcoMateAI | UCLA SAIRS 2025 Hackathon",
+          "subtitle": "April 2025",
+          "bullets": [
+            "1st Place (Sustainability Category) - Presented to industry panellists from Microsoft, IBM, NVIDIA, Google, and LinkedIn.",
+            "Built analytics-driven Streamlit dashboards using Generative AI (Gemini 2.5 Flash) to produce insights and recomendations."
+          ],
+          "tags": [
+            "hackathon",
+            "streamlit",
+            "genai",
+            "sustainability"
+          ]
+        },
+        {
+          "title": "CUDA - Custom Library for CNN Pre-Processing",
+          "subtitle": "January 2025 – February 2025",
+          "bullets": [
+            "Engineered custom CUDA kernels for matrix multiplication and image convolution using shared memory tiling and cuBLAS, achieving significant (exponential) throughput gains on NVIDIA Tesla T4 GPUs.",
+            "Developed high-performance custom Python Library by compiling CUDA kernels into shared libraries(.so), enabling seamless integration of raw GPU acceleration into standard data science workflows."
+          ],
+          "tags": [
+            "cuda",
+            "deep learning",
+            "performance"
+          ]
+        }
+      ]
+    },
+    "ML Engineer": {
+      "summary": [
+        "Machine Learning Engineer focused on productionizing models with robust, observable, and scalable systems.",
+        "Hands-on experience with model serving, CI/CD, monitoring, and MLOps best practices."
+      ],
+      "keywords": [
+        "ml",
+        "deployment",
+        "api",
+        "serving",
+        "mlops"
+      ],
+      "projects": [
+        {
+          "title": "Real-Time Recommendation API",
+          "tech": "Python, FastAPI, Redis, Docker, Kubernetes",
+          "description": "Developed and deployed a low-latency recommendation API with feature caching and blue-green deployments, improving click-through rate for key surfaces.",
+          "tags": [
+            "api",
+            "recsys",
+            "deployment"
+          ]
+        },
+        {
+          "title": "Model Monitoring and Drift Detection",
+          "tech": "Python, Prometheus, Grafana",
+          "description": "Implemented monitoring for prediction distributions, data drift, and model performance with alerts and dashboards.",
+          "tags": [
+            "monitoring",
+            "drift",
+            "mlops"
+          ]
+        }
+      ]
+    },
+    "Software Engineer": {
+      "summary": [
+        "Software Engineer with experience building reliable backend services and data-driven features.",
+        "Strong in Python, REST APIs, and relational databases, with a focus on clean code and testing."
+      ],
+      "keywords": [
+        "backend",
+        "api",
+        "python",
+        "microservice"
+      ],
+      "projects": [
+        {
+          "title": "Job Automation Platform",
+          "tech": "Python, FastAPI, Celery, PostgreSQL",
+          "description": "Built a platform to orchestrate background tasks and workflows, improving reliability and observability of scheduled jobs.",
+          "tags": [
+            "backend",
+            "automation"
+          ]
+        },
+        {
+          "title": "Resume Automation Tool (Streamlit)",
+          "tech": "Python, Streamlit, FPDF",
+          "description": "Created an interactive tool to generate tailored resumes from job descriptions and keywords with PDF export capabilities.",
+          "tags": [
+            "streamlit",
+            "tooling"
+          ]
+        }
+      ]
+    }
+  }
+}
+
