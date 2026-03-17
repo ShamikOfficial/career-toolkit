@@ -1,6 +1,6 @@
-## Shamik Resume Builder (Streamlit)
+## Resume Builder (Streamlit)
 
-Interactive Streamlit app to generate a tailored resume PDF (`Shamik_Basu_Resume_YYYYMMDD_HHMMSS.pdf`) based on:
+Interactive Streamlit app to generate a tailored resume PDF (`resume_YYYYMMDD_HHMMSS.pdf`) based on:
 
 - **Target role / template**
 - **Job description** (pasted or `.txt` upload)
@@ -74,7 +74,7 @@ Then open the URL shown in the terminal (typically `http://localhost:8501`).
 
 The generated file will be saved under:
 
-- `processed/Shamik_Basu_Resume_YYYYMMDD_HHMMSS.pdf`
+- `processed/resume_YYYYMMDD_HHMMSS.pdf`
 
 and is also available via the **Download PDF** button.
 

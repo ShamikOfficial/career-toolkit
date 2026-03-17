@@ -1,0 +1,23 @@
+# Virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Streamlit cache
+.streamlit/
+
+# Processed / generated artifacts
+processed/
+
+# Local configuration / personal data
+resume_template.json
+default_resume_template.docx
+resume_*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+

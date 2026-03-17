@@ -1,0 +1,29 @@
+{
+  "latex_template": "resume_template.tex",
+  "contact": {
+    "name": "Your Name",
+    "email": "you@example.com",
+    "phone": "+1 (000) 000-0000",
+    "location": "City, Country",
+    "linkedin": "https://www.linkedin.com/in/your-profile",
+    "github": "https://github.com/your-handle"
+  },
+  "education": [],
+  "skills": [],
+  "leadership": [],
+  "experience": [],
+  "roles": {
+    "Data Scientist": {
+      "summary": [
+        "Short role-based summary line 1.",
+        "Short role-based summary line 2."
+      ],
+      "keywords": [
+        "machine learning",
+        "data science"
+      ],
+      "projects": []
+    }
+  }
+}
+
