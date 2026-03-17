@@ -11,6 +11,7 @@ __pycache__/
 
 # Processed / generated artifacts
 processed/
+!processed/.gitkeep
 
 # Local configuration / personal data
 resume_template.json
