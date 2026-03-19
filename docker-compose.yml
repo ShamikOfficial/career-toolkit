@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: career-toolkit-app
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    environment:
+      # Add any env vars you need here, for example:
+      # - DB_HOST=mysql
+      # - DB_USER=user
+      # - DB_PASSWORD=pass
+      # - DB_NAME=career_toolkit
+      PYTHONUNBUFFERED: "1"
+
