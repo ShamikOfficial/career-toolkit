@@ -34,6 +34,9 @@ services:
         condition: service_healthy
     environment:
       PYTHONUNBUFFERED: "1"
+      # Point the container at Ollama running on your host machine.
+      # On Windows/macOS Docker Desktop, host.docker.internal works.
+      OLLAMA_URL: ${OLLAMA_URL:-http://host.docker.internal:11434}
       MYSQL_HOST: ${MYSQL_HOST:-mysql}
       # Container-to-container MySQL port is always 3306.
       MYSQL_PORT: "3306"

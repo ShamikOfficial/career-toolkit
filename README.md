@@ -78,3 +78,4 @@ The generated file will be saved under:
 
 and is also available via the **Download PDF** button.
 
+ollama pull qwen2.5:7b-instruct

@@ -681,21 +681,21 @@ This tool helps you quickly generate a tailored resume PDF from a default profil
         if selected_projects:
             preview_name = "preview_resume.pdf"
             preview_path = os.path.join(PDF_DIR, preview_name)
-            generate_pdf(
-                contact=contact,
-                summary_lines=summary_lines,
-                experience=experience_list,
-                projects=selected_projects,
-                education=education_list,
-                skills=skills,
-                leadership=leadership_list,
-                target_path=preview_path,
-                base_text=None,
-                use_word_template=False,
-                section_order=section_order,
-            )
-
             try:
+                generate_pdf(
+                    contact=contact,
+                    summary_lines=summary_lines,
+                    experience=experience_list,
+                    projects=selected_projects,
+                    education=education_list,
+                    skills=skills,
+                    leadership=leadership_list,
+                    target_path=preview_path,
+                    base_text=None,
+                    use_word_template=False,
+                    section_order=section_order,
+                )
+
                 with open(preview_path, "rb") as f:
                     base64_pdf = base64.b64encode(f.read()).decode("utf-8")
                 pdf_display = (
@@ -705,8 +705,9 @@ This tool helps you quickly generate a tailored resume PDF from a default profil
                 )
                 st.markdown("**Live PDF preview** — updates on every change:", unsafe_allow_html=False)
                 st.markdown(pdf_display, unsafe_allow_html=True)
-            except OSError:
-                st.warning("Preview PDF could not be loaded. Please try adjusting a field again.")
+            except Exception as e:
+                st.error("PDF preview failed (LaTeX). The rest of the app is still usable.")
+                st.caption(str(e))
         else:
             st.info("Select at least one project to see a live PDF preview.")
 
@@ -719,19 +720,24 @@ This tool helps you quickly generate a tailored resume PDF from a default profil
                 file_name = default_file_name()
                 target_path = os.path.join(PDF_DIR, file_name)
 
-                generate_pdf(
-                    contact=contact,
-                    summary_lines=summary_lines,
-                    experience=experience_list,
-                    projects=selected_projects,
-                    education=education_list,
-                    skills=skills,
-                    leadership=leadership_list,
-                    target_path=target_path,
-                    base_text=None,
-                    use_word_template=False,
-                    section_order=section_order,
-                )
+                try:
+                    generate_pdf(
+                        contact=contact,
+                        summary_lines=summary_lines,
+                        experience=experience_list,
+                        projects=selected_projects,
+                        education=education_list,
+                        skills=skills,
+                        leadership=leadership_list,
+                        target_path=target_path,
+                        base_text=None,
+                        use_word_template=False,
+                        section_order=section_order,
+                    )
+                except Exception as e:
+                    st.error("Final PDF build failed (LaTeX).")
+                    st.caption(str(e))
+                    return
 
                 st.success(f"Final PDF generated and saved as `{file_name}` in `processed/pdf/` folder.")
                 with open(target_path, "rb") as f:

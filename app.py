@@ -2,6 +2,7 @@ import streamlit as st
 
 from features.resume import run as run_resume_builder
 from features.ats import run as run_ats
+from features.cover_letter import run as run_cover_letter
 
 
 def main() -> None:
@@ -10,7 +11,7 @@ def main() -> None:
     st.sidebar.title("Career Toolkit")
     tool = st.sidebar.radio(
         "Choose feature",
-        ["Resume Builder", "Applicant Tracking"],
+        ["Resume Builder", "Applicant Tracking", "Cover Letter Generator"],
         index=0,
     )
 
@@ -18,6 +19,8 @@ def main() -> None:
         run_resume_builder()
     elif tool == "Applicant Tracking":
         run_ats()
+    elif tool == "Cover Letter Generator":
+        run_cover_letter()
 
 
 if __name__ == "__main__":

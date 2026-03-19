@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS applications (
     ON DELETE CASCADE
 );
 
-CREATE INDEX IF NOT EXISTS idx_applications_status ON applications(status);
-CREATE INDEX IF NOT EXISTS idx_applications_applied_at ON applications(applied_at);
+CREATE INDEX idx_applications_status ON applications(status);
+CREATE INDEX idx_applications_applied_at ON applications(applied_at);
 
 -- -----------------------
 -- CRM/Outreach: contacts + messages
@@ -84,6 +84,6 @@ CREATE TABLE IF NOT EXISTS outreach_messages (
     ON DELETE CASCADE
 );
 
-CREATE INDEX IF NOT EXISTS idx_outreach_status ON outreach_messages(status);
-CREATE INDEX IF NOT EXISTS idx_outreach_created_at ON outreach_messages(created_at);
+CREATE INDEX idx_outreach_status ON outreach_messages(status);
+CREATE INDEX idx_outreach_created_at ON outreach_messages(created_at);
 
