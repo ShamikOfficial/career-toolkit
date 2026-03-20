@@ -47,7 +47,6 @@ Dependencies include:
 
 - `streamlit` – web UI framework
 - `fpdf2` – PDF generation
-- `playwright` – browser automation for the Job Apply Agent
 - `requests` – local Ollama HTTP calls
 
 ---
@@ -106,33 +105,9 @@ In the sidebar, choose **Cover Letter Generator**, paste a job description, and 
 
 ---
 
-## Job Apply Agent (Playwright + local Ollama)
+## Ask Resume (local Ollama)
 
-This is a **semi-auto** browser assistant:
-- Opens a real browser window (so you can complete **login** and **CAPTCHA** manually)
-- Scans the current page for form fields
-- Uses **one** local LLM call to generate answers for the whole page
-- Fills what it can deterministically and skips unknowns as `__NEEDS_USER__`
-
-### One-time Playwright browser install (local)
-
-After installing Python deps:
-
-```bash
-python -m playwright install chromium
-```
-
-### Using the agent
-
-1. Start the app: `streamlit run app.py`
-2. In the sidebar choose **Job Apply Agent**
-3. Paste the application URL and click **Open browser**
-4. Complete any login/CAPTCHA in the browser window
-5. Click **Scan current page** → then **Fill this page**
-
-### Limitations
-- Login and CAPTCHA are manual by design.
-- “Any site” is best-effort; Greenhouse/Lever detection exists but many layouts will still need user review.
+In the sidebar, choose **Ask Resume**, paste any question, and get a concise answer grounded in `resume_template.json`.
 
 ---
 
