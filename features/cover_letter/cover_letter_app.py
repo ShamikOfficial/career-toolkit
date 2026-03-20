@@ -1,9 +1,88 @@
 from __future__ import annotations
 
+import os
+import subprocess
+import tempfile
+
 import streamlit as st
 
 from ai.cover_letter import OllamaConfig, OllamaError, generate_cover_letter
 from ai.ollama_client import list_models
+
+
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+COVER_LETTER_TEMPLATE = os.path.join(BASE_DIR, "cover_letter_template.tex")
+
+
+def _latex_escape(text: str) -> str:
+    replacements = {
+        "\\": r"\textbackslash{}",
+        "&": r"\&",
+        "%": r"\%",
+        "$": r"\$",
+        "#": r"\#",
+        "_": r"\_",
+        "{": r"\{",
+        "}": r"\}",
+        "~": r"\textasciitilde{}",
+        "^": r"\textasciicircum{}",
+    }
+    for orig, repl in replacements.items():
+        text = text.replace(orig, repl)
+    return text
+
+
+def _cover_letter_body_tex(text: str) -> str:
+    paras = [p.strip() for p in text.splitlines()]
+    out = []
+    for p in paras:
+        if not p:
+            out.append("")
+        else:
+            out.append(_latex_escape(p))
+    return "\n\n".join(out)
+
+
+def _cover_letter_pdf_bytes(text: str) -> bytes:
+    if not os.path.exists(COVER_LETTER_TEMPLATE):
+        raise RuntimeError(f"Cover letter template not found: {COVER_LETTER_TEMPLATE}")
+
+    with open(COVER_LETTER_TEMPLATE, "r", encoding="utf-8") as f:
+        template = f.read()
+
+    tex = template.replace("%%BODY%%", _cover_letter_body_tex(text))
+
+    with tempfile.TemporaryDirectory(prefix="cover_letter_tex_") as td:
+        tex_path = os.path.join(td, "cover_letter.tex")
+        with open(tex_path, "w", encoding="utf-8") as f:
+            f.write(tex)
+
+        try:
+            subprocess.run(
+                [
+                    "xelatex",
+                    "-interaction=nonstopmode",
+                    "-halt-on-error",
+                    "-jobname=cover_letter",
+                    "cover_letter.tex",
+                ],
+                cwd=td,
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+        except FileNotFoundError as e:
+            raise RuntimeError(
+                "LaTeX engine 'xelatex' was not found. Install MiKTeX/TeX Live and ensure xelatex is on PATH."
+            ) from e
+        except subprocess.CalledProcessError as e:
+            raise RuntimeError(f"LaTeX compilation failed:\n{e.stderr}") from e
+
+        pdf_path = os.path.join(td, "cover_letter.pdf")
+        if not os.path.exists(pdf_path):
+            raise RuntimeError("PDF was not produced by LaTeX.")
+        with open(pdf_path, "rb") as f:
+            return f.read()
 
 
 def run() -> None:
@@ -88,4 +167,14 @@ def run() -> None:
             file_name="cover_letter.txt",
             mime="text/plain",
         )
+        try:
+            pdf_bytes = _cover_letter_pdf_bytes(editable_text)
+            st.download_button(
+                label="Download as PDF",
+                data=pdf_bytes,
+                file_name="cover_letter.pdf",
+                mime="application/pdf",
+            )
+        except Exception as e:  # noqa: BLE001
+            st.error(f"Could not build PDF: {e}")
 
