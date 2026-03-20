@@ -23,6 +23,12 @@ class OllamaError(RuntimeError):
     pass
 
 
+def _debug_print(title: str, content: str) -> None:
+    print(f"\n===== OLLAMA DEBUG: {title} =====")
+    print(content)
+    print(f"===== END OLLAMA DEBUG: {title} =====\n")
+
+
 def list_models(*, url: str = DEFAULT_OLLAMA_URL, timeout_s: float = 5.0) -> List[str]:
     endpoint = f"{url.rstrip('/')}/api/tags"
     try:
@@ -67,6 +73,20 @@ def generate(prompt: str, *, config: Optional[OllamaConfig] = None) -> str:
             "num_predict": config.max_tokens,
         },
     }
+    _debug_print(
+        "REQUEST",
+        json.dumps(
+            {
+                "endpoint": endpoint,
+                "model": config.model,
+                "temperature": config.temperature,
+                "max_tokens": config.max_tokens,
+                "prompt": prompt,
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
+    )
 
     try:
         resp = requests.post(endpoint, json=body, timeout=300)
@@ -95,5 +115,6 @@ def generate(prompt: str, *, config: Optional[OllamaConfig] = None) -> str:
     text = data.get("response")
     if not isinstance(text, str):
         raise OllamaError("Ollama response did not contain 'response' text.")
+    _debug_print("RESPONSE", text)
     return text
 

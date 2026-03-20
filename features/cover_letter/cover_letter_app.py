@@ -70,9 +70,6 @@ def run() -> None:
                     )
                     st.session_state.cover_letter_text = text
                     st.session_state.cover_letter_editor = text
-                    print("\n===== COVER LETTER (generated) =====\n")
-                    print(text)
-                    print("\n===== END COVER LETTER =====\n")
                 except OllamaError as e:
                     st.error(str(e))
                 except Exception as e:  # noqa: BLE001
